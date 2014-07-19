@@ -34,6 +34,8 @@ class JsonRequest(base.EncodingRequest):
               data=None):
 
         if data is not None:
+      
+            self.request[constants.ENCODING_API_REQUEST_TYPE]['notify_format'] = self.request_type
 
             for k,v in data.items():
                     self.request[constants.ENCODING_API_REQUEST_TYPE][k] = v

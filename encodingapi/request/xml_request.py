@@ -34,6 +34,10 @@ class XmlRequest(base.EncodingRequest):
         
         if data is not None:
 
+            element = lxml.etree.Element('notify_format')
+            element.text = self.request_type
+            self.request.append(element)
+
             for k,v in data.items():
                 if isinstance(v, list):
                     for item in v:
